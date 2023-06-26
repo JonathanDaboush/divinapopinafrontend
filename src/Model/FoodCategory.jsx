@@ -54,7 +54,7 @@ let [oldName,setOldName]=useState("");
                     }).catch(
                     function (error) {
                     console.log(error.toString());
-                    });
+                    });  props.upCounter();  
             }
             else{
                 path+="/exist";
@@ -65,7 +65,7 @@ let [oldName,setOldName]=useState("");
                     }).catch(
                     function (error) {
                     console.log(error);
-                    });
+                    });  props.upCounter();  
             }
         setErrorMessage("");
        
@@ -85,7 +85,7 @@ let Remove=async()=>{
     await axios.delete('http://localhost:8080/foodCategory/'+props.id).catch(
         function (error) {
             console.log(error);
-        });
+        });  props.upCounter();  
 }}
 
 

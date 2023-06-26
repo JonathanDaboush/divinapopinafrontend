@@ -72,7 +72,7 @@ export function Order(props){
                     }).catch(
                     function (error) {
                     console.log(error.toString());
-                    });
+                    });props.upCounter();
             }
             else{
                 path+="/exist";
@@ -84,9 +84,10 @@ export function Order(props){
                     function (error) {
                     console.log(error);
                     });
-                    setErrorMessage("");
+                    setErrorMessage("");props.upCounter();
             }}
             else{setErrorMessage("food item does not exist.")}
+            
             event.preventDefault();
         }
         useEffect(() => {
@@ -99,7 +100,7 @@ let Remove=async()=>{
     await axios.delete('http://localhost:8080/order/'+props.id).catch(
         function (error) {
             console.log(error);
-        });
+        }); props.upCounter();
 }}
 
 

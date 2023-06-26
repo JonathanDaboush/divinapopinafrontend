@@ -125,7 +125,7 @@ export function Reservation(props){
                     console.log(error);
                     });
                     setErrorMessage("");
-                    setErrorMessage2("");
+                    setErrorMessage2("");props.upCounter();
             }
             else{
                     await axios.post(
@@ -160,7 +160,7 @@ export function Reservation(props){
             await axios.delete('http://localhost:8080/reservation/'+props.id).catch(
                 function (error) {
                     console.log(error);
-                });
+                });props.upCounter();
         }}
 if(props.id){
     return(

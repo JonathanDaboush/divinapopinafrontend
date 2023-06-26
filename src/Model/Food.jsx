@@ -99,7 +99,7 @@ let [oldCategory,setOldCategory]=useState("");
                     }).catch(
                     function (error) {
                     console.log(error.toString());
-                    });
+                    });  props.upCounter();  
             }
             else{
                 path+="/exist";
@@ -110,12 +110,12 @@ let [oldCategory,setOldCategory]=useState("");
                       
                     }).catch(
                     function (error) {
-                    console.log(error);
-                    });
+                    console.log(error);props.upCounter();  
+                    });  
             }
         }
             
-           
+      
         }
         useEffect(() => {
         if(props.id){
@@ -126,7 +126,7 @@ let Remove=async(event)=>{
         
     await axios.delete('http://localhost:8080/food/'+props.id).catch(
         function (error) {
-            console.log(error);
+            console.log(error);props.upCounter();
         });
 }}
 
@@ -178,7 +178,7 @@ if(props.id){
                 
                 <input type="submit" className="btn btn-success" value="Save" />
                 
-                <button  className=" btn btn-danger" onClick={Remove} >Remove</button>
+                <button  className=" btn btn-danger" onClick={()=>Remove} >Remove</button>
             
             </div>
             

@@ -65,16 +65,16 @@ ofList=[];
     if(ok){
         if(reservationList.length!=0){
                 return(<div>
-            <button  className="btn btn-secondary" onClick={()=>{update()}}>Update Page</button>
+            <button  className="btn btn-secondary" onClick={()=>{update();getList()}}>Update Page</button>
                     <button  className="btn btn-secondary" onClick={()=>{setOk(false)}}>Create New Reservation:</button>
                     {(reservationList.map((e,i)=>{
-                        return <Reservation updater={updater} foodNames={foodNames} reservation={e} ofDate={props.ofDate} upCounter={()=>setCounter(counter+1)} key={i} id={e.id}  names={names} />
+                        return <Reservation updater={updater} foodNames={foodNames} reservation={e} ofDate={props.ofDate} upCounter={()=>getList()} key={i} id={e.id}  names={names} />
                     }))}
                 </div>);
         }
         else{
             return(<div>
-                <button  className="btn btn-secondary" onClick={()=>{update()}}>Update Page</button>
+                <button  className="btn btn-secondary" onClick={()=>{update();getList()}}>Update Page</button>
                         <button  className="btn btn-secondary" onClick={()=>{setOk(false)}}>Create New Reservation:</button>
                        <br></br>
                         <a>there are no reservations on this date.</a>
@@ -88,10 +88,10 @@ ofList=[];
         else{
         
         return(<div>
-                    <button  className="btn btn-secondary" onClick={()=>{update()}}>Update Page</button>
+                    <button  className="btn btn-secondary" onClick={()=>{update();getList()}}>Update Page</button>
                    
                     <button  className="btn btn-secondary" onClick={()=>{setOk(true)}}>Edit Reservation:</button>
-                    <Reservation    updater={updater} foodNames={foodNames} ofDate={props.ofDate} upCounter={()=>setCounter(counter+1)} names={names} />
+                    <Reservation    updater={updater} foodNames={foodNames} ofDate={props.ofDate} upCounter={()=>getList()} names={names} />
                         
                 </div>);
         }

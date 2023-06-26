@@ -31,7 +31,7 @@ if(ok){
                 <button  className="btn btn-secondary" onClick={()=>{setOk(false)}}>Create New Order:</button>
                 
                 {(orderList.map((e)=>{
-                    return <Order updater={props.updater} order={e} upCounter={()=>setCounter(counter+1)} resId={props.resId} key={e.id} id={e.id} list={foodList} />
+                    return <Order updater={props.updater} order={e} upCounter={()=>getList()} resId={props.resId} key={e.id} id={e.id} list={foodList} />
                 }))}
             </div>
         );
@@ -52,8 +52,8 @@ else{
     return(
         <div>
            
-            <button  className="btn btn-secondary" onClick={()=>{setOk(true)}}>Edit Order:</button>
-            <Order   updater={props.updater} resId={props.resId} upCounter={()=>setCounter(counter+1)}  list={foodList}/>
+            <button  className="btn btn-secondary" onClick={()=>{setOk(true);}}>Edit Order:</button>
+            <Order   updater={props.updater} resId={props.resId} upCounter={()=>getList()}  list={foodList}/>
         </div>
     );
 }

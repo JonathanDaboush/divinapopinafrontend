@@ -38,10 +38,10 @@ if(ok){
     if(foodCategoryList.length!=0){
         return(
             <div> 
-                <button  className=" btn btn-info" onClick={()=>{setCount(count+1)}}>Update Page</button>
+                <button  className=" btn btn-info" onClick={()=>{setCount(count+1);getList()}}>Update Page</button>
                 <button  className=" btn btn-info" onClick={()=>{setOk(false)}}>Create New Food Category:</button>
                 {(foodCategoryList.map((e,i)=>{
-                    return <FoodCategory  i={i} list={names} key={e.id} id={e.id} />
+                    return <FoodCategory  upCounter={()=>{getList()}} i={i} list={names} key={e.id} id={e.id} />
                 }))}
             </div>
         );
@@ -49,7 +49,7 @@ if(ok){
     else{
         return(
             <div> 
-                <button  className=" btn btn-info" onClick={()=>{setCount(count+1)}}>Update Page</button>
+                <button  className=" btn btn-info" onClick={()=>{setCount(count+1);getList()}}>Update Page</button>
                 <button  className=" btn btn-info" onClick={()=>{setOk(false)}}>Create New Food Category:</button>
                 <br></br>
                <a>There are no food categories.</a>
@@ -60,9 +60,9 @@ if(ok){
 else{
     return(
         <div>
-            <button  className=" btn btn-info" onClick={()=>{setCount(count+1)}}>Update Page</button>
+            <button  className=" btn btn-info" onClick={()=>{setCount(count+1);getList()}}>Update Page</button>
             <button  className=" btn btn-info" onClick={()=>{setOk(true)}}>Edit Food Category:</button>
-            <FoodCategory list={names} />
+            <FoodCategory list={names}  upCounter={()=>{getList()}} />
   
         </div>
     );
